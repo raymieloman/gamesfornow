@@ -15,7 +15,7 @@ public class App {
         timetable.add("1001");
 
         System.out.println("Dit is een COLON");
-        System.out.println((char) (':'));
+        System.out.println((int) (':'));
         System.out.println("Dit is einde van een COLON");
 
         // ik kom aan op het station om 10:33, wanneer gaat mijn
