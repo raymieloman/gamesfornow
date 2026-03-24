@@ -1,4 +1,4 @@
-package nl.acme.ocp.navigable;
+package nl.acme.ocp;
 
 import java.util.NavigableSet;
 import java.util.TreeSet;
