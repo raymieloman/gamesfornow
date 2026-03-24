@@ -1,4 +1,4 @@
-package nl.edsn.ocp.exercises.timetable;
+package nl.acme.ocp.exercises.timetable;
 
 import java.time.LocalTime;
 import java.util.Arrays;

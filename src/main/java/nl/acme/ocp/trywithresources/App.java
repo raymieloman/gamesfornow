@@ -1,4 +1,4 @@
-package nl.edsn.ocp.trywithresources;
+package nl.acme.ocp.trywithresources;
 
 public class App {
 

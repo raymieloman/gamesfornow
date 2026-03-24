@@ -1,4 +1,4 @@
-package nl.edsn.utils;
+package nl.acme.utils;
 
 public class Assertion {
 

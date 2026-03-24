@@ -1,4 +1,4 @@
-package nl.edsn.ocp.exercises.generics;
+package nl.acme.ocp.exercises.generics;
 
 import java.util.List;
 
