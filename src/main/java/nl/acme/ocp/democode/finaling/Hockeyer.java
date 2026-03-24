@@ -1,4 +1,4 @@
-package nl.acme.ocp.finaling;
+package nl.acme.ocp.democode.finaling;
 public class Hockeyer {
     private final String name; // compile error if NOT FILLED in ALL constructors
 

@@ -1,4 +1,4 @@
-package nl.acme.ocp;
+package nl.acme.ocp.democode.timetable;
 
 import java.util.NavigableSet;
 import java.util.TreeSet;

@@ -1,18 +1,14 @@
-package nl.acme.ocp.trywithresources;
+package nl.acme.ocp.democode.trywithresources;
 
 public class App {
 
     public static void main(String[] args) {
-        try(Box<? super Object> b = new Box()) {
+        try(Box<Integer> b = new Box()) {
             System.out.println(b);
-            b.add(new Object());
+            b.add(3);
         }
         try (Box<String> letterBox = new Box<>()) {
             letterBox.add("A");
         }
-        System.out.println(3);
-        Box<? extends Object> b = new Box();
-
-
     }
 }

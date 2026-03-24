@@ -4,9 +4,6 @@ import java.util.List;
 
 public final class AnimalDoctor {
 
-    private AnimalDoctor() {
-    }
-
     public static void feedAnimals(List<Animal> animals) {
         for(Animal animal: animals) {
             animal.eat();
@@ -23,5 +20,8 @@ public final class AnimalDoctor {
         animals.add(new Cat());
         animals.add(new Dog());
         animals.add(new Bird());
+    }
+
+    private AnimalDoctor() {
     }
 }

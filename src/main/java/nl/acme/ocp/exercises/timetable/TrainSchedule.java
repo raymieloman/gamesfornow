@@ -6,6 +6,10 @@ import java.util.NavigableSet;
 import java.util.TreeSet;
 
 public class TrainSchedule {
+    // ! The type for NavigableSet must implement the interface Comparable
+    /*
+    e.g. for Animal: implements Comparable<Animal>
+     */
     private NavigableSet<LocalTime> schedule = new TreeSet<>();
 
     public TrainSchedule() {

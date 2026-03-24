@@ -1,4 +1,4 @@
-package nl.acme.ocp.trywithresources;
+package nl.acme.ocp.democode.trywithresources;
 
 import java.util.ArrayList;
 import java.util.List;

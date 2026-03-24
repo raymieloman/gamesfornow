@@ -10,9 +10,13 @@ public class App {
 
         List<Cat> cats = List.of(new Cat());
         AnimalDoctor.feedSomeAnimals(cats);
-//        AnimalDoctor.feedAnimals(cats); // fails, why
+//        AnimalDoctor.feedAnimals(cats); // fails, why? =>
+        // since we have to supply a list of the exact type Animal
+        // and that is not the case
 
         List<Cat> catList = new ArrayList<>();
-//        AnimalDoctor.addSomeAnimals(catList); // fails, why
+//        AnimalDoctor.addSomeAnimals(catList); // fails, why? =>
+        // since we have to supply a List<Animal> or List<Objecgt>
+        // lower bound is Animal
     }
 }
