@@ -1,14 +1,15 @@
-package nl.acme.ocp.democode;
+package nl.acme.ocp.democode.importing;
 
 import nl.acme.ocp.exercises.generics.*;
-public class MijnApp {
+public class App {
 
     public static void main(String[] args) {
         Animal a = new Animal();
         Dog d;
         Bird b;
         Cat c;
-//        Francien f;
+        // unable to import Poedel since that is in the default src folder. which is very bad.
+//        Poedel f;
 
 //        a.eat();
     }

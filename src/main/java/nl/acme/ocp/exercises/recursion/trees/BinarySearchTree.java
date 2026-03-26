@@ -1,4 +1,4 @@
-package nl.acme.ocp.democode.recursion.trees;
+package nl.acme.ocp.exercises.recursion.trees;
 
 public class BinarySearchTree {
 
