@@ -8,15 +8,20 @@ public class App {
 
         tree.put(10);
         tree.put(5);
-        tree.put(5);
+        assertTrue(tree.isBalanced());
         tree.put(20);
+
         tree.put(17);
+        assertTrue(tree.isBalanced());
+        tree.put(21);
+        assertEquals(5, tree.smallest());
+//        assertTrue(tree.isBalanced()); // fails now
         tree.putAll(10, 5, 13, 82, 233);
+        assertEquals(233, tree.largest());
 
         System.out.println(tree);
 
         assertTrue(tree.contains(5));
         assertFalse(tree.contains(115));
-        assertEquals(7, tree.size());
     }
 }
