@@ -6,19 +6,19 @@ public class BinarySearchTree {
     private BinarySearchTree left;
     private BinarySearchTree right;
 
-    public void put(int newValue) {
+    public void put(int value) {
         if (this.value == null) {
-            this.value = newValue;
+            this.value = value;
             left = new BinarySearchTree();
             right = new BinarySearchTree();
         } else {
-            if (newValue == value) {
+            if (value == this.value) {
                 return;
             }
-            if (newValue < this.value) {
-                left.put(newValue);
+            if (value < this.value) {
+                left.put(value);
             } else {
-                right.put(newValue);
+                right.put(value);
             }
         }
     }
@@ -29,27 +29,31 @@ public class BinarySearchTree {
         }
         if (value == this.value) {
             return true;
+        }
+        if (value < this.value) {
+            return left.contains(value);
         } else {
-            if (value < this.value) {
-                return left.contains(value);
-            } else {
-                return right.contains(value);
-            }
+            return right.contains(value);
         }
     }
 
-    // size daarmee bedoel ik: = het aantal nodes
-    public int getSize() {
-        if (this.value == null) {
-            return 0;
-        } else {
-            return 1 + left.getSize() + right.getSize();
+    public void putAll(int... values) {
+        for (int value : values) {
+            this.put(value);
         }
+    }
+
+    // size daarmee bedoel ik: = het aantal nodes van de complete tree
+    public int size() {
+        return this.value == null ? 0 : 1 + left.size() + right.size();
     }
 
     @Override
     public String toString() {
-        // rloman dit kan een stuk cleaner! Foei!
-        return (left == null ? "": "<" + left.toString()) + "/<"+  (this.value == null ? "" : "[" + this.value+"]") + (right == null ? "" : ">" + right.toString()+ "/>");
+        if (this.value == null) {
+            return "";
+        } else {
+            return String.format("%s[%s]%s", left, value, right);
+        }
     }
 }
