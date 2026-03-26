@@ -8,7 +8,7 @@ public class MijnApp {
         Dog d;
         Bird b;
         Cat c;
-        Francien f;
+//        Francien f;
 
 //        a.eat();
     }
