@@ -21,6 +21,7 @@ public class BinarySearchTree {
                 right.put(value);
             }
         }
+
     }
 
     public boolean contains(int value) {
@@ -40,6 +41,29 @@ public class BinarySearchTree {
     public void putAll(int... values) {
         for (int value : values) {
             this.put(value);
+        }
+    }
+
+    public boolean isBalanced() {
+        if (this.value == null) {
+            return true;
+        }
+        return Math.abs(left.size() - right.size()) <= 1;
+    }
+
+    public int smallest() {
+        if (left.value == null) {
+            return this.value;
+        } else {
+            return left.smallest();
+        }
+    }
+
+    public int largest() {
+        if (right.value == null) {
+            return this.value;
+        } else {
+            return right.largest();
         }
     }
 
