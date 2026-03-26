@@ -8,6 +8,7 @@ public class MijnApp {
         Dog d;
         Bird b;
         Cat c;
+        // unable to import Francien since that is in the default src folder. which is very bad.
 //        Francien f;
 
 //        a.eat();
