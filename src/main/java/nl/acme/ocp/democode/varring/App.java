@@ -14,7 +14,6 @@ public class App {
         System.out.println(nogEenLijst);
 
         lijst = null;
-
-//        lijst = new ArrayList<Integer>(); // fails
+//        lijst = new ArrayList<Integer>(); // fails since still the lijst is of generic type String
     }
 }

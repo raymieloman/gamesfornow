@@ -1,7 +1,7 @@
-package nl.acme.ocp.democode;
+package nl.acme.ocp.democode.importing;
 
 import nl.acme.ocp.exercises.generics.*;
-public class MijnApp {
+public class App {
 
     public static void main(String[] args) {
         Animal a = new Animal();

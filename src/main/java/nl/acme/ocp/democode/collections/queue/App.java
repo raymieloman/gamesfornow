@@ -11,10 +11,8 @@ public class App {
             wachtrij.add(3);
             wachtrij.offer(5);
 
-
             System.out.println(wachtrij.poll());
             System.out.println(wachtrij.poll());
-
             System.out.println(wachtrij.poll());
 //            wachtrij.poll() // only poll nog pollFirst and not pollLast
         }
@@ -25,11 +23,7 @@ public class App {
             wachtrij.addLast(300);
             System.out.println(wachtrij.peekFirst());
             System.out.println(wachtrij.pollFirst());
-
             System.out.println(wachtrij.pollLast());
-
         }
-
-
     }
 }
