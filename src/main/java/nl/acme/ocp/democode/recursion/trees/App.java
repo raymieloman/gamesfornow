@@ -1,5 +1,7 @@
 package nl.acme.ocp.democode.recursion.trees;
 
+import static nl.acme.utils.Assertion.*;
+
 public class App {
     public static void main(String[] args) {
 
@@ -10,6 +12,11 @@ public class App {
         tree.put(20);
         tree.put(17);
 
-        System.out.println(tree.toString());
+        System.out.println(tree);
+
+        assertTrue(tree.contains(5));
+        assertFalse(tree.contains(115));
+
+        assertEquals(4, tree.getSize());
     }
 }

@@ -24,17 +24,32 @@ public class BinarySearchTree {
     }
 
     public boolean contains(int value) {
-
+        if (this.value == null) {
+            return false;
+        }
+        if (value == this.value) {
+            return true;
+        } else {
+            if (value < this.value) {
+                return left.contains(value);
+            } else {
+                return right.contains(value);
+            }
+        }
     }
 
     // size daarmee bedoel ik: = het aantal nodes
     public int getSize() {
-
+        if (this.value == null) {
+            return 0;
+        } else {
+            return 1 + left.getSize() + right.getSize();
+        }
     }
 
     @Override
     public String toString() {
         // rloman dit kan een stuk cleaner! Foei!
-        return (left == null ? "": left.toString()) + "," + (this.value == null ? "" : this.value) + (right == null ? "" : right.toString());
+        return (left == null ? "": "<" + left.toString()) + "/<"+  (this.value == null ? "" : "[" + this.value+"]") + (right == null ? "" : ">" + right.toString()+ "/>");
     }
 }
