@@ -4,6 +4,13 @@ import java.util.List;
 
 public final class AnimalDoctor {
 
+
+    public static void main(String[] args) {
+        int a = 4;
+        poedel(a);
+        System.out.println(a);
+    }
+
     public static void feedAnimals(List<Animal> animals) {
         for(Animal animal: animals) {
             animal.eat();
@@ -14,6 +21,10 @@ public final class AnimalDoctor {
         for(Animal animal: animals) {
             animal.eat();
         }
+    }
+
+    static void poedel(final int age) {
+//        ++age;
     }
 
     public static void addSomeAnimals(List<?super Animal> animals) {

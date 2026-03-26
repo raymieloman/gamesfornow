@@ -1,6 +1,6 @@
 package nl.acme.utils;
 
-public class Assertion {
+public final class Assertion {
 
     public static void require(boolean b, String message) {
         if (!b) {
@@ -59,6 +59,10 @@ public class Assertion {
     public static void assertEquals(Object expected, Object actual) {
         require(expected != null && actual != null, "Expected and actual must not be null");
         ensure(actual.equals(expected), "Expected and actual must be equal");
+    }
+
+    private Assertion() {
+
     }
 
     public static void assertEquals(long expected, long actual) {
