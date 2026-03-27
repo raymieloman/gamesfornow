@@ -19,10 +19,10 @@ public class App {
         tree.putAll(10, 5, 13, 82, 233);
         assertEquals(233, tree.largest());
 
-        System.out.println(tree);
-
         assertTrue(tree.contains(5));
         assertFalse(tree.contains(115));
         assertTrue(tree.isBalanced());
+
+        System.out.println(tree);
     }
 }

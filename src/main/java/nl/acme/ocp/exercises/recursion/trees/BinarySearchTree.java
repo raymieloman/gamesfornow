@@ -27,10 +27,10 @@ public class BinarySearchTree {
         assertTrue(isBalanced());
     }
 
-    public int depth() {
-        if(this.value == null) return 0;
-        int leftDepth = 1+this.left.depth();
-        int rightDepth = 1+this.right.depth();
+    private int depth() {
+        if (this.value == null) return 0;
+        int leftDepth = 1 + this.left.depth();
+        int rightDepth = 1 + this.right.depth();
 
         return Math.max(leftDepth, rightDepth);
     }
@@ -110,22 +110,8 @@ public class BinarySearchTree {
             }
         }
         rebalance();
+        assertTrue(isBalanced());
     }
-    public void pp() {
-        if (this.value == null) return;
-        if (this.left != null) {
-            System.out.print("[");
-            left.pp();
-        }
-        System.out.print(value != null ? value : "");
-        System.out.print("]");
-        if (this.right != null) {
-            System.out.print("[");
-            right.pp();
-        }
-        System.out.print("]");
-    }
-
 
     public boolean isLeaf() {
         return this.size() <= 1;
@@ -147,9 +133,12 @@ public class BinarySearchTree {
         }
     }
 
-    // size daarmee bedoel ik: = het aantal nodes van de complete tree
     public int size() {
-        return this.value == null ? 0 : 1 + left.size() + right.size();
+        if (this.value == null) {
+            return 0;
+        } else {
+            return 1 + left.size() + right.size();
+        }
     }
 
     @Override
