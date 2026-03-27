@@ -27,7 +27,7 @@ public class BinarySearchTree {
         assertTrue(isBalanced());
     }
 
-    private int depth() {
+    public int depth() {
         if (this.value == null) return 0;
         int leftDepth = 1 + this.left.depth();
         int rightDepth = 1 + this.right.depth();
