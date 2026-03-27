@@ -8,6 +8,12 @@ public class BinarySearchTree {
     private BinarySearchTree left;
     private BinarySearchTree right;
 
+    public void putAll(int... values) {
+        for (int value : values) {
+            this.put(value);
+        }
+    }
+
     public void put(int value) {
         if (this.value == null) {
             this.value = value;
@@ -49,12 +55,6 @@ public class BinarySearchTree {
         }
     }
 
-    public void putAll(int... values) {
-        for (int value : values) {
-            this.put(value);
-        }
-    }
-
     private void rebalance() {
         if (isBalanced()) return;
         if (left.size() > right.size()) {
@@ -77,12 +77,9 @@ public class BinarySearchTree {
         int current = this.value;
         delete(n);
         this.value = n;
-        add(current);
+        put(current);
     }
 
-    public void add(int value) {
-        put(value);
-    }
 
     public void delete(int n) {
         if (this.value.equals(n)) {
