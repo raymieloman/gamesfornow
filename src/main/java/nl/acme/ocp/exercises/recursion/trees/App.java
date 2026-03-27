@@ -15,7 +15,7 @@ public class App {
         assertTrue(tree.isBalanced());
         tree.put(21);
         assertEquals(5, tree.smallest());
-//        assertTrue(tree.isBalanced()); // fails now
+        assertTrue(tree.isBalanced()); // fails now
         tree.putAll(10, 5, 13, 82, 233);
         assertEquals(233, tree.largest());
 
@@ -23,5 +23,6 @@ public class App {
 
         assertTrue(tree.contains(5));
         assertFalse(tree.contains(115));
+        assertTrue(tree.isBalanced());
     }
 }

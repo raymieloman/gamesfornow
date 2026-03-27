@@ -1,5 +1,7 @@
 package nl.acme.ocp.exercises.recursion.trees;
 
+import static nl.acme.utils.Assertion.assertTrue;
+
 public class BinarySearchTree {
 
     private Integer value;
@@ -11,6 +13,7 @@ public class BinarySearchTree {
             this.value = value;
             left = new BinarySearchTree();
             right = new BinarySearchTree();
+//            rebalance();
         } else {
             if (value == this.value) {
                 return;
@@ -21,7 +24,8 @@ public class BinarySearchTree {
                 right.put(value);
             }
         }
-
+        rebalance();
+//        assertTrue(isBalanced());
     }
 
     public boolean contains(int value) {
@@ -49,6 +53,30 @@ public class BinarySearchTree {
             return true;
         }
         return Math.abs(left.size() - right.size()) <= 1;
+    }
+
+    private void rebalance() {
+        if (isBalanced()) {
+            assertTrue(Math.abs(left.size()-right.size()) <= 1);
+            return;
+        }
+        int compare = left.size() - right.size();
+        if (compare < 0) {
+            // right is too large
+            int smallest = right.smallest();
+            int current = this.value;
+            this.value = smallest;
+            System.out.printf("current: %d, smallest: %d%n", current, smallest );
+            assertTrue(current != this.value);
+            put(current);
+        } else {
+            // left is too large
+            int largest = left.largest();
+            int current = this.value;
+            this.value = largest;
+            assertTrue(current != this.value);
+            put(current);
+        }
     }
 
     public int smallest() {
