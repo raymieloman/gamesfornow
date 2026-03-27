@@ -13,7 +13,6 @@ public class BinarySearchTree {
             this.value = value;
             left = new BinarySearchTree();
             right = new BinarySearchTree();
-//            rebalance();
         } else {
             if (value == this.value) {
                 return;
@@ -25,7 +24,15 @@ public class BinarySearchTree {
             }
         }
         rebalance();
-//        assertTrue(isBalanced());
+        assertTrue(isBalanced());
+    }
+
+    public int depth() {
+        if(this.value == null) return 0;
+        int leftDepth = 1+this.left.depth();
+        int rightDepth = 1+this.right.depth();
+
+        return Math.max(leftDepth, rightDepth);
     }
 
     public boolean contains(int value) {
@@ -56,27 +63,72 @@ public class BinarySearchTree {
     }
 
     private void rebalance() {
-        if (isBalanced()) {
-            assertTrue(Math.abs(left.size()-right.size()) <= 1);
-            return;
+        if (!isBalanced()) {
+            if (left.size() > right.size()) {
+                int n = left.largest();
+                swapWithCurrent(n);
+            } else {
+                int n = right.smallest();
+                swapWithCurrent(n);
+            }
         }
-        int compare = left.size() - right.size();
-        if (compare < 0) {
-            // right is too large
-            int smallest = right.smallest();
-            int current = this.value;
-            this.value = smallest;
-            System.out.printf("current: %d, smallest: %d%n", current, smallest );
-            assertTrue(current != this.value);
-            put(current);
+    }
+
+    private void swapWithCurrent(int n) {
+        int current = this.value;
+        delete(n);
+        this.value = n;
+        add(current);
+    }
+
+    public void add(int value) {
+        put(value);
+    }
+
+    public void delete(int n) {
+        if (this.value.equals(n)) {
+            if (isLeaf()) {
+                this.value = null;
+                this.left = null;
+                this.right = null;
+            } else {
+                if (left.size() <= right.size()) {
+                    int rightSmallest = right.smallest();
+                    right.delete(rightSmallest);
+                    this.value = rightSmallest;
+                } else {
+                    int leftLargest = left.largest();
+                    left.delete(leftLargest);
+                    this.value = leftLargest;
+                }
+            }
         } else {
-            // left is too large
-            int largest = left.largest();
-            int current = this.value;
-            this.value = largest;
-            assertTrue(current != this.value);
-            put(current);
+            if (n <= this.value) {
+                left.delete(n);
+            } else {
+                right.delete(n);
+            }
         }
+        rebalance();
+    }
+    public void pp() {
+        if (this.value == null) return;
+        if (this.left != null) {
+            System.out.print("[");
+            left.pp();
+        }
+        System.out.print(value != null ? value : "");
+        System.out.print("]");
+        if (this.right != null) {
+            System.out.print("[");
+            right.pp();
+        }
+        System.out.print("]");
+    }
+
+
+    public boolean isLeaf() {
+        return this.size() <= 1;
     }
 
     public int smallest() {
