@@ -55,23 +55,22 @@ public class BinarySearchTree {
         }
     }
 
-    public boolean isBalanced() {
+    private void rebalance() {
+        if (isBalanced()) return;
+        if (left.size() > right.size()) {
+            int n = left.largest();
+            swapWithCurrent(n);
+        } else {
+            int n = right.smallest();
+            swapWithCurrent(n);
+        }
+    }
+
+    private boolean isBalanced() {
         if (this.value == null) {
             return true;
         }
         return Math.abs(left.size() - right.size()) <= 1;
-    }
-
-    private void rebalance() {
-        if (!isBalanced()) {
-            if (left.size() > right.size()) {
-                int n = left.largest();
-                swapWithCurrent(n);
-            } else {
-                int n = right.smallest();
-                swapWithCurrent(n);
-            }
-        }
     }
 
     private void swapWithCurrent(int n) {
