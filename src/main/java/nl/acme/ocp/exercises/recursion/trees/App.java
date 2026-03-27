@@ -22,6 +22,7 @@ public class App {
         assertTrue(tree.contains(5));
         assertFalse(tree.contains(115));
         assertTrue(tree.isBalanced());
+        System.out.println(tree.depth());
 
         System.out.println(tree);
     }
