@@ -2,11 +2,11 @@ package nl.acme.ocp.democode.recursion.hanoi;
 
 public class Hanoi {
 
-    public void hanoi(int aantal) {
+    public static void hanoi(int aantal) {
         hanoi(aantal, 'A', 'B', 'C');
     }
 
-    private void hanoi(int aantal, char from, char via, char to) {
+    private static void hanoi(int aantal, char from, char via, char to) {
         if (aantal == 0) {
             return;
         }
