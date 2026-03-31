@@ -8,15 +8,17 @@ public class App {
 
         tree.put(10);
         tree.put(5);
-        tree.put(5);
         tree.put(20);
+
         tree.put(17);
+        tree.put(21);
+        assertEquals(5, tree.smallest());
         tree.putAll(10, 5, 13, 82, 233);
-
-        System.out.println(tree);
-
+        assertEquals(233, tree.largest());
         assertTrue(tree.contains(5));
         assertFalse(tree.contains(115));
-        assertEquals(7, tree.size());
+
+        System.out.println(tree.depth());
+        System.out.println(tree);
     }
 }

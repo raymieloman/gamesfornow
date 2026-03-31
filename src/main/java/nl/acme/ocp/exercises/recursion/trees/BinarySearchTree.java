@@ -1,10 +1,18 @@
 package nl.acme.ocp.exercises.recursion.trees;
 
+import static nl.acme.utils.Assertion.assertTrue;
+
 public class BinarySearchTree {
 
     private Integer value;
     private BinarySearchTree left;
     private BinarySearchTree right;
+
+    public void putAll(int... values) {
+        for (int value : values) {
+            this.put(value);
+        }
+    }
 
     public void put(int value) {
         if (this.value == null) {
@@ -21,6 +29,16 @@ public class BinarySearchTree {
                 right.put(value);
             }
         }
+        rebalance();
+        assertTrue(isBalanced());
+    }
+
+    public int depth() {
+        if (this.value == null) return 0;
+        int leftDepth = 1 + this.left.depth();
+        int rightDepth = 1 + this.right.depth();
+
+        return Math.max(leftDepth, rightDepth);
     }
 
     public boolean contains(int value) {
@@ -37,15 +55,86 @@ public class BinarySearchTree {
         }
     }
 
-    public void putAll(int... values) {
-        for (int value : values) {
-            this.put(value);
+    private void rebalance() {
+        if (isBalanced()) return;
+        if (left.size() > right.size()) {
+            int n = left.largest();
+            swapWithCurrent(n);
+        } else {
+            int n = right.smallest();
+            swapWithCurrent(n);
         }
     }
 
-    // size daarmee bedoel ik: = het aantal nodes van de complete tree
+    private boolean isBalanced() {
+        if (this.value == null) {
+            return true;
+        }
+        return Math.abs(left.size() - right.size()) <= 1;
+    }
+
+    private void swapWithCurrent(int n) {
+        int current = this.value;
+        delete(n);
+        this.value = n;
+        put(current);
+    }
+
+
+    public void delete(int n) {
+        if (this.value.equals(n)) {
+            if (isLeaf()) {
+                this.value = null;
+                this.left = null;
+                this.right = null;
+            } else {
+                if (left.size() <= right.size()) {
+                    int rightSmallest = right.smallest();
+                    right.delete(rightSmallest);
+                    this.value = rightSmallest;
+                } else {
+                    int leftLargest = left.largest();
+                    left.delete(leftLargest);
+                    this.value = leftLargest;
+                }
+            }
+        } else {
+            if (n <= this.value) {
+                left.delete(n);
+            } else {
+                right.delete(n);
+            }
+        }
+        rebalance();
+        assertTrue(isBalanced());
+    }
+
+    public boolean isLeaf() {
+        return this.size() <= 1;
+    }
+
+    public int smallest() {
+        if (left.value == null) {
+            return this.value;
+        } else {
+            return left.smallest();
+        }
+    }
+
+    public int largest() {
+        if (right.value == null) {
+            return this.value;
+        } else {
+            return right.largest();
+        }
+    }
+
     public int size() {
-        return this.value == null ? 0 : 1 + left.size() + right.size();
+        if (this.value == null) {
+            return 0;
+        } else {
+            return 1 + left.size() + right.size();
+        }
     }
 
     @Override
