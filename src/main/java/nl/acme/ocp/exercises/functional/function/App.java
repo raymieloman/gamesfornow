@@ -1,4 +1,4 @@
-package nl.acme.ocp.exercises.funnctional.function;
+package nl.acme.ocp.exercises.functional.function;
 
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
