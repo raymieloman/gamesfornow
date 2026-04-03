@@ -1,6 +1,9 @@
 package nl.acme.ocp.democode.recursion.reclist;
 
-public class RecList<T extends Comparable<T>> {
+import java.util.Iterator;
+
+public class RecList<T extends Comparable<T>> implements Iterable<T> {
+
     private T value;
     private RecList<T> tail;
 
@@ -98,5 +101,32 @@ public class RecList<T extends Comparable<T>> {
             return true;
         }
         return tail.delete(value);
+    }
+
+
+    static class RecListIterator<T extends Comparable<T>> implements Iterator<T> {
+        private RecList<T> recList;
+
+        RecListIterator(RecList<T> recList) {
+            this.recList = recList;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return recList.value != null;
+}
+
+        @Override
+        public T next() {
+            T value = recList.value;
+            recList = recList.tail;
+
+            return value;
+        }
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new RecListIterator<>(this);
     }
 }

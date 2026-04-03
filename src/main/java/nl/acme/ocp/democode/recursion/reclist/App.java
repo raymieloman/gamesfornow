@@ -1,5 +1,7 @@
 package nl.acme.ocp.democode.recursion.reclist;
 
+import java.util.Iterator;
+
 import static nl.acme.utils.Assertion.*;
 
 public class App {
@@ -31,5 +33,12 @@ public class App {
         System.out.println(r);
 
         assertTrue(r.get(33) == null);
+
+        for (int o : r) {
+            System.out.println("In loop: "+o);
+        }
+        for (Iterator<Integer> i = r.iterator(); i.hasNext(); ) {
+            System.out.println("In for loop met iterator: "+i.next());
+        }
     }
 }
