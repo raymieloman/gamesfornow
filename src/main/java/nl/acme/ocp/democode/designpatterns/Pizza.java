@@ -3,7 +3,6 @@ package nl.acme.ocp.democode.designpatterns;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO Bodem
 public class Pizza {
     private List<String> ingredients;
     private double size;
@@ -15,10 +14,6 @@ public class Pizza {
         this.size = builder.size;
         this.price = builder.price;
         this.style = builder.style;
-    }
-
-    public void setStyle(String style) {
-        this.style = style;
     }
 
     public List<String> getIngredients() {
