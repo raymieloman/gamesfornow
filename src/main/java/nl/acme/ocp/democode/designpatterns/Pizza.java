@@ -65,7 +65,9 @@ public class Pizza {
         }
 
         public PizzaBuilder withBodem(Bodem bodem) {
-            
+            this.bodem = bodem;
+
+            return this;
         }
 
         public PizzaBuilder withStyle(String style) {
