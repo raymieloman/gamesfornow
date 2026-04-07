@@ -8,12 +8,14 @@ public class Pizza {
     private double size;
     private double price;
     private String style;
+    private Bodem bodem;
 
     private Pizza(PizzaBuilder builder) {
         this.ingredients = new ArrayList<>(builder.ingredients);
         this.size = builder.size;
         this.price = builder.price;
         this.style = builder.style;
+        this.bodem = builder.bodem;
     }
 
     public List<String> getIngredients() {
@@ -48,6 +50,7 @@ public class Pizza {
         private double size;
         private String style;
         private final List<String> ingredients = new ArrayList<>();
+        private Bodem bodem;
 
         public PizzaBuilder(double price, double size, String style) {
             this.price = price;
@@ -59,6 +62,10 @@ public class Pizza {
             this.ingredients.add(ingredient);
 
             return this;
+        }
+
+        public PizzaBuilder withBodem(Bodem bodem) {
+            
         }
 
         public PizzaBuilder withStyle(String style) {
