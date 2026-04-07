@@ -7,7 +7,7 @@ public class Klant {
         this.voorraad = voorraad;
     }
 
-    public void koop() {
+    public void koop() throws InterruptedException {
         this.voorraad.koop();
     }
 }
