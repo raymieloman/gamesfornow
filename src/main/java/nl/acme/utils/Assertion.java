@@ -57,6 +57,7 @@ public final class Assertion {
     }
 
     public static void assertEquals(Object expected, Object actual) {
+        System.out.println("Expected: " + expected + ", Actual: " + actual);
         require(expected != null && actual != null, "Expected and actual must not be null");
         ensure(actual.equals(expected), "Expected and actual must be equal");
     }
@@ -66,6 +67,7 @@ public final class Assertion {
     }
 
     public static void assertEquals(long expected, long actual) {
+        System.out.println("Expected: " + expected + " Actual: " + actual);
         ensure(actual == expected, "Must be equal");
     }
 }

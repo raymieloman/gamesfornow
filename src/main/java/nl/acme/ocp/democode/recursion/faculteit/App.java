@@ -1,4 +1,4 @@
-package nl.acme.ocp.democode.recursion;
+package nl.acme.ocp.democode.recursion.faculteit;
 
 import static nl.acme.ocp.democode.recursion.MathStuff.fac;
 import static nl.acme.utils.Assertion.assertEquals;

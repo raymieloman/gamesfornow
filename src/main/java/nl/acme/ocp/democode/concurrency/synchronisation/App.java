@@ -4,15 +4,25 @@ public class App {
     public static void main(String[] args) {
         final Voorraad voorraad = new Voorraad();
 
-        Thread bakker = new Thread(() -> {
-            new Bakker(voorraad).bak();
-        });
-        bakker.start();
+        for (int i = 0; i < 10; i++) {
+            Thread bakker = new Thread(() -> {
+                new Bakker(voorraad).bak();
+            });
+            bakker.start();
+        }
+
 
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
-                new Klant(voorraad).koop();
+                try {
+                    new Klant(voorraad).koop();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }).start();
         }
+
+        // Check: weet je zeker dat hier 0 wordt geprint? :-)
+        System.out.println("Finale voorraad: "+voorraad.getVoorraad());
     }
 }
