@@ -1,4 +1,4 @@
-package nl.acme.ocp.democode.designpatterns;
+package nl.acme.ocp.democode.designpatterns.builder;
 
 // TODO Bodem
 public class App {

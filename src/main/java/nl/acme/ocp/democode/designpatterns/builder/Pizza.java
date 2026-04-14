@@ -1,4 +1,4 @@
-package nl.acme.ocp.democode.designpatterns;
+package nl.acme.ocp.democode.designpatterns.builder;
 
 import java.util.ArrayList;
 import java.util.List;
