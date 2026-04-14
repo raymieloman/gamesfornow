@@ -1,4 +1,4 @@
-package nl.acme.ocp.democode.concurrency.synchronisation;
+package nl.acme.ocp.democode.concurrency.synchronisation.locking;
 
 public class Klant {
     private Voorraad voorraad;
