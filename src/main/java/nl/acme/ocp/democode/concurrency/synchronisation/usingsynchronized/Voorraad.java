@@ -1,4 +1,4 @@
-package nl.acme.ocp.democode.concurrency.synchronisation;
+package nl.acme.ocp.democode.concurrency.synchronisation.usingsynchronized;
 
 public class Voorraad {
     private int voorraad;
